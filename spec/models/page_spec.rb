@@ -35,4 +35,14 @@ describe Page do
       duplicate_page.should_not be_valid
     end
   end
+
+  describe "methods" do
+    before do
+      @page = Page.create!(:title => "About Us", :content => "How you doin'?")
+    end
+
+    it "should return the title lowercased and replacing spaces with underscores" do
+      @page.url.should == "about_us"
+    end
+  end
 end
