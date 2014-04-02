@@ -12,18 +12,12 @@
  *= require_tree .
  */
 
-	
+html{
+  background: linear-gradient(white,purple);
+}
+
 body {
   margin:0;
-}
-
-body {
-	height: 100%;
-	background: linear-gradient(white,purple);
-}
-
-html, body {
-	height: 100%;
 }
 
 header {
