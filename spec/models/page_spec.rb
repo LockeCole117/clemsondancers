@@ -34,6 +34,25 @@ describe Page do
       duplicate_page = Page.new(:title => @page.title, :content => "duplicate!")
       duplicate_page.should_not be_valid
     end
+
+    it "should set the URL automatically" do
+      @page.save!
+      @page.url.should == "hello"
+    end
+
+    it "should allow a custom URL to be set" do
+      @page.url = "test"
+      @page.save!
+
+      @page.url.should == "test"
+    end
+
+    it "should not allow duplicate URLs" do
+      @page.save!
+
+      duplicate_page = Page.new(:title => "New", :content => "duplicate!", :url => @page.url)
+      duplicate_page.should_not be_valid
+    end
   end
 
   describe "methods" do
