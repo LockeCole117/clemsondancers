@@ -63,5 +63,60 @@ describe Page do
     it "should return the title lowercased and replacing spaces with underscores" do
       @page.url.should == "about_us"
     end
+
+    it "should allow the page to be set as the index" do
+      @page.index = true
+      @page.save!
+      @page.index?.should == true
+    end
+
+    it "should not freak out if index == true on this page and it is the index" do
+      @page.index = true
+      @page.save!
+      @page.index?.should == true
+
+      @page.title = "About Us"
+      @page.save!
+      @page.index?.should == true
+    end
+
+    it "change the index from one page to another, unsetting the first page as the index" do
+      @page.index = true
+      @page.save!
+      @page.index?.should == true
+
+      new_index = Page.create!(:title => "Home", :content => "Welcome!")
+      new_index.index = true
+      new_index.save!
+      new_index.index?.should == true
+
+      @page.reload.index.should == false
+    end
+
+    it "should set the index if there are no pages in the database" do
+      Page.destroy_all
+      Page.count.should == 0
+
+      @page = Page.create!(:title => "First Page", :content => "First!")
+      @page.index?.should == true
+    end
+
+    it "should set the index if this is the only page in the database" do
+      Page.count.should == 1
+      Page.first.should == @page
+
+      @page.index = false
+      @page.save!
+      @page.index?.should == true
+    end
+  end
+
+  describe "scopes" do
+    it "should return the Index page" do
+      @page = Page.create!(:title => "Index", :content => "Stuff")
+      @page.save!
+
+      Page.index.should == @page
+    end
   end
 end
