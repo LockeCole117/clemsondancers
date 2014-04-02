@@ -51,7 +51,7 @@ h1 {
 	font-family: Tahoma;
 	font-weight: bold;
 	font-size: 1em;
-	letter-spacing: -2px;
+	letter-spacing: 0px;
 	margin-bottom: 30px;
 	text-align: left;
 	font-weight: normal;
@@ -59,6 +59,7 @@ h1 {
   display: inline;
   position:absolute;
   bottom:0;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
 nav ul{
