@@ -29,8 +29,12 @@ html, body {
 header {
   background-image:url("http://i.imgur.com/kpkd3ln.jpg");
   background-repeat:no-repeat;
-  background-attachment:fixed;
- 	background-position:center; 
+  height: 300px;
+  position: relative;
+}
+
+header h1{
+  vertical-align: bottom;
 }
 
 #banner {
@@ -56,6 +60,9 @@ h1 {
 	text-align: left;
 	font-weight: normal;
 	color: #FFF;
+  display: inline;
+  position:absolute;
+  bottom:0;
 }
 
 nav ul{
