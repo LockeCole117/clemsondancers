@@ -109,6 +109,24 @@ describe Page do
       @page.save!
       @page.index?.should == true
     end
+
+    it "should make it easy to mark a page as the index" do
+      @new_page = Page.create!(:title => "First Page", :content => "Test")
+      @new_page.mark_as_index
+      @new_page.index?.should == true
+
+      @new_page.reload
+      @new_page.index?.should == false
+    end
+
+    it "should make it easy to mark a page as the index and save it automatically" do
+      @new_page = Page.create!(:title => "First Page", :content => "Test")
+      @new_page.mark_as_index!
+      @new_page.index?.should == true
+
+      @new_page.reload
+      @new_page.index?.should == true
+    end
   end
 
   describe "scopes" do

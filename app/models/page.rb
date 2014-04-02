@@ -15,6 +15,15 @@ class Page < ActiveRecord::Base
     Page.index_flag_set.first
   end
 
+  def mark_as_index
+    self.index = true
+  end
+
+  def mark_as_index!
+    self.mark_as_index
+    self.save!
+  end
+
   protected
 
   def unset_other_index_flags_if_index
