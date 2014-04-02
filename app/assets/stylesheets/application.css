@@ -29,12 +29,14 @@ html, body {
 header {
   background-image:url("http://i.imgur.com/kpkd3ln.jpg");
   background-repeat:no-repeat;
+  background-position: center top;
   height: 300px;
   position: relative;
 }
 
 header h1{
   vertical-align: bottom;
+  margin-bottom: 0px;
 }
 
 #banner {
