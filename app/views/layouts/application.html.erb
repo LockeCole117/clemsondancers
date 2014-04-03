@@ -1,14 +1,52 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Clemsondancers</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<head>
+ 	 <title>Clemson Dancers</title>
+  	 <%= stylesheet_link_tag    "application", :media => "all" %>
+  	 <%= javascript_include_tag "application" %>
+ 	 <%= csrf_meta_tags %>
+	</head>
+	<body>
 
-<%= yield %>
+		<header>
+			<div id="banner">
+				<h1>Clemson Dancers</h1>
+			</div>
+		</header>
 
-</body>
+		<nav>
+      <ul>
+        <% Page.all.each do | page | %>
+          <li><%= link_to page.title, page.url %></li>
+        <% end %>
+       	<li>Photo Gallery</li>
+      </ul>
+    </nav>
+
+    <div id="wrapper">
+      <div id="sidebar">
+        <div id="contact" class="sidebar_sections">
+          <h2>Contact Us</h2>
+          <h4>Email us at: </h4>
+          <ul>
+            <li><%= mail_to "clemsondancers@gmail.com" %></li>
+          </ul>
+          <h4>Check us out on Facebook:</h4>
+          <ul>
+            <li><!-- Facebook Badge START --><a href="https://www.facebook.com/pages/Clemson-Dancers/502529323190299" target="_TOP" style="font-family: &quot;lucida grande&quot;,tahoma,verdana,arial,sans-serif; font-size: 11px; font-variant: normal; font-style: normal; font-weight: normal; color: #3B5998; text-decoration: none;" title="Clemson Dancers"></a><br/><a href="https://www.facebook.com/pages/Clemson-Dancers/502529323190299" target="_TOP" title="Clemson Dancers"><img src="https://badge.facebook.com/badge/502529323190299.1399.287604752.png" style="border: 0px;" /></a><br/><a href="https://www.facebook.com/advertising" target="_TOP" style="font-family: &quot;lucida grande&quot;,tahoma,verdana,arial,sans-serif; font-size: 11px; font-variant: normal; font-style: normal; font-weight: normal; color: #3B5998; text-decoration: none;" title="Make your own badge!"></a><!-- Facebook Badge END --></li>
+          </ul>
+        </div>
+      </div>
+      <div id="content">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+        <%= yield %>
+      </div>
+     </div>
+	</body>
 </html>

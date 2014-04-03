@@ -1,4 +1,8 @@
 Clemsondancers::Application.routes.draw do
+  get "static/test"
+
+  root :to => 'static#test'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
