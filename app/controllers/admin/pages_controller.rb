@@ -1,17 +1,17 @@
-class Admin::PagesController < ApplicationController
+class Admin::PagesController < AdminController
 
   def index
     @pages = Page.all
-    @Title = "Pages"
+    @title = "Pages"
   end
 
   def new 
     @page = Page.new
-    @Title = "New Page"
+    @title = "New Page"
   end
 
   def edit
-    @Title = "Edit Page"
+    @title = "Edit Page"
     begin
           @page = Page.find(params[:id])
       rescue ActiveRecord::RecordNotFound
@@ -20,7 +20,6 @@ class Admin::PagesController < ApplicationController
   end
 
   def create
-    debugger
     @page = Page.new(params[:page])
     
       if @page.save
@@ -32,9 +31,9 @@ class Admin::PagesController < ApplicationController
 
   def update
     begin
-          @model = Page.find(params[:id])
-          if @model.update_attributes(params[:page])
-            render 'pages/show'
+          @page = Page.find(params[:id])
+          if @page.update_attributes(params[:page])
+            render 'show'
           else
             render 'edit'
           end
@@ -54,7 +53,7 @@ class Admin::PagesController < ApplicationController
   end
 
   def show
-    @Title = "Page"
+    @title = "Page"
       begin
           @page = Page.find(params[:id])
       rescue ActiveRecord::RecordNotFound
