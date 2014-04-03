@@ -1,6 +1,7 @@
 Clemsondancers::Application.routes.draw do
   namespace :superuser do
     resources :admins, :except => :show
+    match '/' => "admins#index"
   end
 
   # The priority is based upon order of creation:
