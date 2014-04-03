@@ -1,12 +1,12 @@
 class PagesController < ApplicationController
 
-	def show
-		@Title = "Page"
-    	begin
-      		@page = Page.find(params[Page.url])
-    	rescue ActiveRecord::RecordNotFound
-      		redirect_to root_path, :flash => {:notice => "Page not found"}
-    	end
+  def show
+      @title = "Page"
+      begin
+          @page = Page.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+          redirect_to admin_pages_path, :flash => {:notice => "Page not found"}
+      end
 
-	end
+  end
 end
