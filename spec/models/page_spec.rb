@@ -93,6 +93,7 @@ describe Page do
 
         @page.should_not be_valid
       end
+
     end
 
     describe "gallery" do
@@ -171,6 +172,7 @@ describe Page do
 
         @page.should_not be_valid
       end
+
     end
 
   end
