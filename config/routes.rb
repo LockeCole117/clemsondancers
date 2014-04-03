@@ -1,14 +1,20 @@
 Clemsondancers::Application.routes.draw do
-
   namespace :admin do
 
     resources :pages
 
   end
 
+  namespace :superuser do
+    resources :admins, :except => :show
+    match '/' => "admins#index"
+  end
+
   #  This should come after every other attempt at a page
   # as a last resort to find a page.
   match '/:page_url' => 'pages#show', :as => :page
+
+  root :to => 'static#test'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

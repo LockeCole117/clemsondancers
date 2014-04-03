@@ -11,3 +11,89 @@
  *= require_self
  *= require_tree .
  */
+
+html{
+  background: linear-gradient(white,purple);
+}
+
+body {
+  margin:0;
+}
+
+header {
+  background-image:url("http://i.imgur.com/kpkd3ln.jpg");
+  background-repeat:no-repeat;
+  background-position: center top;
+  height: 300px;
+  position: relative;
+}
+
+header h1{
+  vertical-align: bottom;
+  margin-bottom: 0px;
+}
+
+#banner {
+	font-size: 4em;
+	text-align: left;
+	color: white;
+}
+
+#sidebar{
+  background: white;
+}
+ 
+#content{
+  background: white;
+}
+
+h1 {
+	font-family: Tahoma;
+	font-weight: bold;
+	font-size: 1em;
+	letter-spacing: 0px;
+	margin-bottom: 30px;
+	text-align: left;
+	font-weight: normal;
+	color: #FFF;
+  display: inline;
+  position:absolute;
+  bottom:0;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+nav ul{
+  padding: 0;
+  margin:0;
+}
+ 
+nav ul li {
+  text-align: center;
+  color: white;
+  display: inline-block;
+  background: purple;
+  width: 22%;
+  padding: 0;
+  margin: 0;
+}
+
+#sidebar{
+  float: right;
+  height: 100%;
+  padding: 10px;
+  padding-right: 50px;
+  margin-bottom: 30px;
+}
+ 
+#content{
+  height: 100%;
+  padding: 15px;
+}
+
+#contact ul{
+  list-style: none;
+}
+
+#contact h4{
+  padding-left: 5px;
+}

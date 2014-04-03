@@ -1,0 +1,10 @@
+<%= render 'layouts/error_explanation', :object => @admin %>
+<%= form_for [:superuser, @admin] do |f| %>
+  <%= f.label :email %>
+  <%= f.email_field :email %><br/>
+  <%= f.label :password %>
+  <%= f.password_field :password %><br/>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %><br/>
+  <%= f.submit %>
+<% end %>
