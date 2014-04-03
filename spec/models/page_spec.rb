@@ -80,6 +80,18 @@ describe Page do
       @page.index?.should == true
     end
 
+    it "should not allow the 'index' page to be unmarked as the index, since the only way to unset the current index page is to set another page as the index" do
+      @page.index = true
+      @page.save!
+      @page.index?.should == true
+
+      new_page = Page.create!(:title => "Home", :content => "Welcome!")
+
+      @page.index = false
+      @page.should_not be_valid
+      @page.errors[:base].should == ["Cannot unset the index page, you can only make another page the index"]
+    end
+
     it "change the index from one page to another, unsetting the first page as the index" do
       @page.index = true
       @page.save!
@@ -101,13 +113,13 @@ describe Page do
       @page.index?.should == true
     end
 
-    it "should set the index if this is the only page in the database" do
+    it "should not unset the index if this is the only page in the database" do
       Page.count.should == 1
       Page.first.should == @page
 
       @page.index = false
-      @page.save!
-      @page.index?.should == true
+      @page.should_not be_valid
+      @page.reload.index?.should == true
     end
 
     it "should make it easy to mark a page as the index" do

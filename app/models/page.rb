@@ -4,6 +4,7 @@ class Page < ActiveRecord::Base
   validates :title, :presence => true, :uniqueness => true, :allow_blank => false
   validates :content, :presence => true, :allow_blank => false
   validates :url, :presence => true, :uniqueness => true, :allow_blank => false
+  validate :cannot_unset_the_current_index
 
   before_validation :generate_url
   before_save :unset_other_index_flags_if_index
@@ -26,12 +27,17 @@ class Page < ActiveRecord::Base
 
   protected
 
+  def cannot_unset_the_current_index
+    if self.index == false and Page.index.id == self.id
+      errors.add(:base, "Cannot unset the index page, you can only make another page the index")
+    end
+  end
+
   def unset_other_index_flags_if_index
     if self.index?
       Page.index_flag_set.each do |page|
         next if page.id == self.id
-        page.index = false
-        page.save!
+        page.update_attribute(:index, false)
       end
     end
   end
