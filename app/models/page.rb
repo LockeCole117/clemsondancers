@@ -1,9 +1,30 @@
 class Page < ActiveRecord::Base
   attr_accessible :content, :title, :url, :index
+  PROTECTED_URLS = ["superuser", "gallery", "admin"]
 
   validates :title, :presence => true, :uniqueness => true, :allow_blank => false
   validates :content, :presence => true, :allow_blank => false
   validates :url, :presence => true, :uniqueness => true, :allow_blank => false
+
+  validate :reserved_url
+  validate :reserved_title
+
+  def reserved_url
+    return unless self.url.present?
+
+    PROTECTED_URLS.each do |reserved_url|
+      self.errors.add(:url, "is reserved") if self.url.downcase == reserved_url
+    end
+  end
+
+  def reserved_title
+    return unless self.title.present?
+    
+    PROTECTED_URLS.each do |reserved_title|
+      self.errors.add(:title, "is reserved") if self.title.downcase == reserved_title
+    end
+  end
+ 
 
   before_validation :generate_url
   before_save :unset_other_index_flags_if_index
