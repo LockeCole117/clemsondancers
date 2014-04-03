@@ -55,6 +55,126 @@ describe Page do
     end
   end
 
+  describe "reserve titles and names" do
+    describe "superuser" do
+      before do
+        @reserved_url = "superuser"
+        @reserved_title = "Superuser"
+        @page = Page.new(:title => "blabla", :content => "hello")
+        @page.should be_valid
+      end
+
+      it "should not allow lowercase reserved url" do
+        @page.url = @reserved_url
+
+        @page.should_not be_valid
+      end
+
+      it "should not allow uppercase reserved url" do
+        @page.url = @reserved_url.upcase
+
+        @page.should_not be_valid
+      end
+
+      it "should not allow reserved title" do
+        @page.title = @reserved_title
+
+        @page.should_not be_valid
+      end
+
+      it "should not allow lowercase title" do
+        @page.title = @reserved_title.downcase
+
+        @page.should_not be_valid
+      end
+
+      it "should not allow uppercase reserved title" do
+        @page.title = @reserved_title.upcase
+
+        @page.should_not be_valid
+      end
+    end
+
+    describe "gallery" do
+      before do
+        @reserved_url = "gallery"
+        @reserved_title = "Gallery"
+        @page = Page.new(:title => "blabla", :content => "hello")
+        @page.should be_valid
+      end
+
+      it "should not allow lowercase reserved url" do
+        @page.url = @reserved_url
+
+        @page.should_not be_valid
+      end
+
+      it "should not allow uppercase reserved url" do
+        @page.url = @reserved_url.upcase
+
+        @page.should_not be_valid
+      end
+
+      it "should not allow reserved title" do
+        @page.title = @reserved_title
+
+        @page.should_not be_valid
+      end
+
+      it "should not allow lowercase title" do
+        @page.title = @reserved_title.downcase
+
+        @page.should_not be_valid
+      end
+
+      it "should not allow uppercase reserved title" do
+        @page.title = @reserved_title.upcase
+
+        @page.should_not be_valid
+      end
+    end
+
+    describe "admin" do
+      before do
+        @reserved_url = "admin"
+        @reserved_title = "Admin"
+        @page = Page.new(:title => "blabla", :content => "hello")
+        @page.should be_valid
+      end
+
+      it "should not allow lowercase reserved url" do
+        @page.url = @reserved_url
+
+        @page.should_not be_valid
+      end
+
+      it "should not allow uppercase reserved url" do
+        @page.url = @reserved_url.upcase
+
+        @page.should_not be_valid
+      end
+
+      it "should not allow reserved title" do
+        @page.title = @reserved_title
+
+        @page.should_not be_valid
+      end
+
+      it "should not allow lowercase title" do
+        @page.title = @reserved_title.downcase
+
+        @page.should_not be_valid
+      end
+
+      it "should not allow uppercase reserved title" do
+        @page.title = @reserved_title.upcase
+
+        @page.should_not be_valid
+      end
+    end
+
+  end
+
   describe "methods" do
     before do
       @page = Page.create!(:title => "About Us", :content => "How you doin'?")
