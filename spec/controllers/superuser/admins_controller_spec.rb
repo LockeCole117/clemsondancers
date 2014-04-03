@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe Superuser::AdminsController do
+  include AuthHelper
+  before(:each) do
+    http_login
+  end
+  
   describe "GET 'new'" do
     it "returns http success" do
       get 'new'
@@ -10,6 +15,12 @@ describe Superuser::AdminsController do
     it "should return a new record" do
       get 'new'
       assigns(:admin).should be_new_record
+    end
+
+    it "should require that the superuser is logged in" do
+      http_logout
+      get 'new'
+      response.status.should == 401
     end
   end
 
@@ -40,6 +51,18 @@ describe Superuser::AdminsController do
               post 'create', :admin => @attr    
           end.should_not change(Admin, :count) ##This checks that the count of records in User is not changed (the record was not entered)
       end
+
+      it "should require that the superuser is logged in" do
+        http_logout
+        post 'create', :admin => @attr
+        response.status.should == 401
+      end
+
+      it "should require the correct credentials" do
+        http_login("test", "test")
+        post 'create', :admin => @attr
+        response.status.should == 401
+      end
     end
 
     describe "success" do
@@ -61,6 +84,18 @@ describe Superuser::AdminsController do
         post 'create', :admin => @attr
         response.should redirect_to(superuser_admins_path)
       end
+
+      it "should require that the superuser is logged in" do
+        http_logout
+        post 'create', :admin => @attr
+        response.status.should == 401
+      end
+
+      it "should require the correct credentials" do
+        http_login("test", "test")
+        post 'create', :admin => @attr
+        response.status.should == 401
+      end
     end
   end
 
@@ -80,6 +115,18 @@ describe Superuser::AdminsController do
       get 'index'
       assigns(:admins).should == @admins
     end
+
+    it "should require that the superuser is logged in" do
+      http_logout
+      get 'index'
+      response.status.should == 401
+    end
+
+    it "should require that the superuser is logged in" do
+      http_login("test", "test")
+      get 'index'
+      response.status.should == 401
+    end
   end
 
   describe "GET 'edit'" do
@@ -87,6 +134,20 @@ describe Superuser::AdminsController do
       admin = Admin.create!({ :email=>"test@test.com", :password => "test1234", :password_confirmation => "test1234"})
       get 'edit', :id => admin
       response.should be_success
+    end
+
+    it "should require that the superuser is logged in" do
+      admin = Admin.create!({ :email=>"test@test.com", :password => "test1234", :password_confirmation => "test1234"})
+      http_logout
+      get 'edit', :id => admin
+      response.status.should == 401
+    end
+
+    it "should require that the superuser is logged in" do
+      admin = Admin.create!({ :email=>"test@test.com", :password => "test1234", :password_confirmation => "test1234"})
+      http_login("test", "test")
+      get 'edit', :id => admin
+      response.status.should == 401
     end
 
     describe "failure" do
@@ -138,6 +199,18 @@ describe Superuser::AdminsController do
               post 'update', :id => @admin, :admin => @attr
           end.should_not change(Admin, :count) ##This checks that the count of records in User is not changed (the record was not entered)
       end
+
+      it "should require that the superuser is logged in" do
+        http_logout
+        post 'update', :id => @admin, :admin => @attr
+        response.status.should == 401
+      end
+
+      it "should require that the superuser is logged in" do
+        http_login("test", "test")
+        post 'update', :id => @admin, :admin => @attr
+        response.status.should == 401
+      end
     end
 
     describe "success" do
@@ -166,6 +239,18 @@ describe Superuser::AdminsController do
         post 'update', :id => @admin, :admin => @attr
         response.should redirect_to(superuser_admins_path)
       end
+
+      it "should require that the superuser is logged in" do
+        http_logout
+        post 'update', :id => @admin, :admin => @attr
+        response.status.should == 401
+      end
+
+      it "should require that the superuser is logged in" do
+        http_login("test", "test")
+        post 'update', :id => @admin, :admin => @attr
+        response.status.should == 401
+      end
     end
   end
 
@@ -180,6 +265,18 @@ describe Superuser::AdminsController do
         expect{
           post 'destroy', :id => Admin.last.id + 1
         }.not_to change(Admin, :count)
+      end
+
+      it "should require that the superuser is logged in" do
+        http_logout
+        post 'destroy', :id => Admin.last.id + 1
+        response.status.should == 401
+      end
+
+      it "should require that the superuser is logged in" do
+        http_login("test", "test")
+        post 'destroy', :id => Admin.last.id + 1
+        response.status.should == 401
       end
     end
 
@@ -201,6 +298,18 @@ describe Superuser::AdminsController do
       it "should redirect to the admins path" do
         post 'destroy', :id => @admin
         response.should redirect_to(superuser_admins_path)
+      end
+
+      it "should require that the superuser is logged in" do
+        http_logout
+        post 'destroy', :id => @admin
+        response.status.should == 401
+      end
+
+      it "should require that the superuser is logged in" do
+        http_login("test", "test")
+        post 'destroy', :id => Admin.last.id + 1
+        response.status.should == 401
       end
     end
   end
