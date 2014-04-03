@@ -19,34 +19,17 @@
         <% Page.all.each do | page | %>
           <li><%= link_to page.title, page.url %></li>
         <% end %>
-      	<li>About Us</li>
-      	<li>Class Descriptions</li>
-      	<li>Calendar</li>
        	<li>Photo Gallery</li>
       </ul>
     </nav>
 
     <div id="wrapper">
       <div id="sidebar">
-        <div id="classes" class="sidebar_sections">
-          <h2>Upcoming Classes</h2>
-          <ol>
-            <li>some junk</li>
-            <li>other junk</li>
-          </ol>
-        </div>
-        <div id="events" class="sidebar_sections">
-          <h2>Events</h2>
-          <ol>
-            <li>some junk</li>
-            <li>other junk</li>
-          </ol>
-        </div>
         <div id="contact" class="sidebar_sections">
           <h2>Contact Us</h2>
           <h4>Email us at: </h4>
           <ul>
-            <li>clemsondancers@gmail.com</li>
+            <li><%= mail_to "clemsondancers@gmail.com" %></li>
           </ul>
           <h4>Check us out on Facebook:</h4>
           <ul>
