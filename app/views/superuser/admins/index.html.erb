@@ -1,0 +1,7 @@
+<%= link_to "New Admin", new_superuser_admin_path %>
+<ul>
+<% @admins.each do |admin| %>
+  <li><%= mail_to admin.email %> |
+      <%= link_to("Delete", superuser_admin_path(admin), :method => :delete, :confirm => "are you sure you want to delete?") %></li>
+<% end %>
+</ul>
