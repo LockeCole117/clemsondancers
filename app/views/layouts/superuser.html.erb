@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <%= stylesheet_link_tag    "superuser", :media => "all" %>
+  <%= javascript_include_tag "superuser" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<h1><%= page_title(@title) %></h1>
+<% flash.each do |key, value| %>
+    <div class="flash <%= key %>"><%= value %></div>
+<%end%>
+<%= yield %>
+
+</body>
+</html>

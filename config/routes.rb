@@ -1,6 +1,9 @@
 Clemsondancers::Application.routes.draw do
+  namespace :superuser do
+    resources :admins, :except => :show
+    match '/' => "admins#index"
+  end
   get "static/test"
-
   root :to => 'static#test'
 
   # The priority is based upon order of creation:
