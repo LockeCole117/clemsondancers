@@ -1,0 +1,10 @@
+index:
+  title: "Index"
+  content: "#Home Page"
+  url: 'index'
+  index: true
+about_us:
+  title: "About Us"
+  content: "#About Us"
+  url: 'about_us'
+  index: true

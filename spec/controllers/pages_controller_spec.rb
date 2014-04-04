@@ -4,7 +4,7 @@ describe PagesController do
 
   describe "GET 'index'" do
     before do
-      @page = Page.create!(:title => "Index", :content => "Index")
+      @page = pages(:index)
     end
 
     it "returns http success" do
@@ -20,13 +20,13 @@ describe PagesController do
     end
   end
 
-  describe "GET 'page_render'" do
+  describe "GET 'show'" do
     before do
-      @page = Page.create!(:title => "Index", :content => "Index", :url => "test")
+      @page = pages(:about_us)
     end
 
     it "should find the page based on the url" do
-      get 'show', :page_url => "test"
+      get 'show', :page_url => "about_us"
       assigns(:page).should == @page
       response.should render_template('show')
     end
