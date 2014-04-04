@@ -7,9 +7,12 @@
 		<br/>
 		<%= f.label :content %>
 		<br/>
-		<%= f.text_area :content %>
+		<%= f.text_area :content, :id => "page_content" %>
 		<br/>
 		<%= f.submit submit_message %>
 		<% end %>
 	</div>
 </div>
+<script>
+	$('#page_content').markItUp(mySettings);
+</script>
