@@ -1,4 +1,4 @@
 class StaticController < ApplicationController
-  def test
+  def fallback
   end
 end

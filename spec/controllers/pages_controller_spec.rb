@@ -10,6 +10,13 @@ describe PagesController do
     it "returns http success" do
       get 'index'
       assigns(:page).should == @page
+      response.should render_template('index')
+    end
+
+    it "renders the fallback page if something went wrong" do
+      Page.destroy_all
+      get 'index'
+      response.should render_template('static/fallback')
     end
   end
 

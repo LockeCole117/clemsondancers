@@ -11,6 +11,7 @@ class PagesController < ApplicationController
 
   def index
     @page = Page.index
+    render 'static/fallback' and return if @page.nil?
     @title = @page.title
   end
 end
