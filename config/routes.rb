@@ -1,9 +1,8 @@
 Clemsondancers::Application.routes.draw do
   namespace :admin do
-
     resources :pages
-
   end
+  match 'admin/' => "admin#index"
 
   namespace :superuser do
     resources :admins, :except => :show
