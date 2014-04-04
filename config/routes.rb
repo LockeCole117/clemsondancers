@@ -12,9 +12,9 @@ Clemsondancers::Application.routes.draw do
 
   #  This should come after every other attempt at a page
   # as a last resort to find a page.
-  match '/:page_url' => 'pages#show', :as => :page
+  match '/:page_url' => 'pages#show', :as => :show_page
 
-  root :to => 'static#test'
+  root :to => 'pages#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

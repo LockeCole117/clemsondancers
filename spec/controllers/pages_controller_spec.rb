@@ -3,52 +3,36 @@ require 'spec_helper'
 describe PagesController do
 
   describe "GET 'index'" do
+    before do
+      @page = Page.create!(:title => "Index", :content => "Index")
+    end
+
     it "returns http success" do
       get 'index'
-      response.should be_success
+      assigns(:page).should == @page
     end
   end
 
-  describe "GET 'new'" do
-    it "returns http success" do
-      get 'new'
-      response.should be_success
+  describe "GET 'page_render'" do
+    before do
+      @page = Page.create!(:title => "Index", :content => "Index", :url => "test")
+    end
+
+    it "should find the page based on the url" do
+      get 'show', :page_url => "test"
+      assigns(:page).should_not == @page
+    end
+
+    it "should not find the page based on the id" do
+      get 'show', :page_url => @page.id
+      response.should redirect_to(root_path)
+      flash.should be_empty
+    end
+
+    it "should redirect to the root path if the page does not exist" do
+      get 'show', :page_url => "blahblagh"
+      assigns(:page).should_not == @page
+      flash.should be_empty
     end
   end
-
-  describe "GET 'update'" do
-    it "returns http success" do
-      get 'update'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'edit'" do
-    it "returns http success" do
-      get 'edit'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'destroy'" do
-    it "returns http success" do
-      get 'destroy'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'create'" do
-    it "returns http success" do
-      get 'create'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'show'" do
-    it "returns http success" do
-      get 'show'
-      response.should be_success
-    end
-  end
-
 end
