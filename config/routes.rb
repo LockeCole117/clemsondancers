@@ -1,6 +1,8 @@
 Clemsondancers::Application.routes.draw do
   namespace :admin do
-    resources :pages
+    resources :pages do
+     post 'preview', :on => :collection
+    end
   end
   match 'admin/' => "admin#index"
 

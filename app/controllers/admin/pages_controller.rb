@@ -59,6 +59,9 @@ class Admin::PagesController < AdminController
       rescue ActiveRecord::RecordNotFound
           redirect_to admin_pages_path, :flash => {:notice => "Page not found"}
       end
+  end
 
+  def preview
+    render 'preview', :layout => false
   end
 end
