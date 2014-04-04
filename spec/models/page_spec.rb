@@ -258,6 +258,17 @@ describe Page do
       @new_page.reload
       @new_page.index?.should == true
     end
+
+    it "should automatically assign another page as the index if the index is deleted" do
+      pages(:index).destroy
+      pages(:about_us).reload.index?.should == true
+      Page.index.should == pages(:about_us)
+    end
+    it "should not break if the last page has been destroyed, there's nothing we can do" do
+      Page.all.each{|page| page.destroy unless page == @page}
+      @page.reload.destroy
+      Page.count.should == 0
+    end
   end
 
   describe "scopes" do

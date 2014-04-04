@@ -10,6 +10,9 @@ class Page < ActiveRecord::Base
   validate :reserved_url
   validate :reserved_title
 
+  after_destroy :set_first_page_as_index_if_index
+
+
   def reserved_url
     return unless self.url.present?
 
@@ -66,6 +69,12 @@ class Page < ActiveRecord::Base
   def set_page_to_index_if_no_other_pages_exist
     if Page.count == 0 or (Page.count == 1 and Page.first.id == self.id)
       self.index = true
+    end
+  end
+
+  def set_first_page_as_index_if_index
+    if self.index?
+      Page.first.update_attribute(:index, true) unless Page.first.nil?
     end
   end
 
