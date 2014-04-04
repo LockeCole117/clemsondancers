@@ -1,12 +1,9 @@
 class PagesController < ApplicationController
 
   def show
-      begin
-          @page = Page.find(params[:id])
-          @title = @page.title
-      rescue ActiveRecord::RecordNotFound
-          redirect_to root_path
-      end
+    @page = Page.first(:conditions => {:url => params[:page_url]})
+    redirect_to root_path and return if @page.nil?
+    @title = @page.title
   end
 
   def index

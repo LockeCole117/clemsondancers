@@ -27,7 +27,8 @@ describe PagesController do
 
     it "should find the page based on the url" do
       get 'show', :page_url => "test"
-      assigns(:page).should_not == @page
+      assigns(:page).should == @page
+      response.should render_template('show')
     end
 
     it "should not find the page based on the id" do
