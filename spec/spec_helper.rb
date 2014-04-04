@@ -39,6 +39,7 @@ RSpec.configure do |config|
 
   # Add the modules required to handle testing with Devise
   config.include Devise::TestHelpers, :type => :controller
+  config.include AuthHelper
   config.include DeviseControllerInstanceMethods, :type => :controller
   config.extend ControllerPermissionValidations, :type => :controller
   config.extend DeviseControllerMethods, :type => :controller
