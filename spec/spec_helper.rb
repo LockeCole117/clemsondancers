@@ -36,4 +36,11 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  # Add the modules required to handle testing with Devise
+  config.include Devise::TestHelpers, :type => :controller
+  config.include DeviseControllerInstanceMethods, :type => :controller
+  config.extend ControllerPermissionValidations, :type => :controller
+  config.extend DeviseControllerMethods, :type => :controller
+  config.extend DeviseRequestMethods, :type => :request
 end
