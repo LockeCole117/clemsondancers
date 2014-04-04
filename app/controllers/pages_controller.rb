@@ -1,9 +1,9 @@
 class PagesController < ApplicationController
 
   def show
-      @title = "Page"
       begin
           @page = Page.find(params[:id])
+          @title = @page.title
       rescue ActiveRecord::RecordNotFound
           redirect_to root_path
       end
