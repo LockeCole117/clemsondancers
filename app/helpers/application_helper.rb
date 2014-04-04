@@ -43,4 +43,8 @@ module ApplicationHelper
     }
     Redcarpet::Markdown.new(renderer, extensions).render(text).html_safe
   end
+
+  def email_link
+    mail_to "clemsondancers@gmail.com"
+  end
 end
