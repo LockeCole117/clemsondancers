@@ -7,4 +7,4 @@ about_us:
   title: "About Us"
   content: "#About Us"
   url: 'about_us'
-  index: true
+  index: false
