@@ -4,6 +4,7 @@ describe Admin::PagesController do
   #login as an admin for all of our tests (unless we are testing user permissions behavior)
   #so we can focus on ensuring our controller logic is correct rather than fighting permissions
   login_admin
+  render_views
 
    describe "GET 'new'" do
     it "returns http success" do
@@ -272,6 +273,22 @@ describe Admin::PagesController do
       #we can't turn this into lambda to pass into the validation method because it won't call post properly 
       def access_resource
         post 'destroy', :id => pages(:index)
+      end
+
+      action_uses_admin_permissions
+    end
+  end
+
+  describe "POST 'preview'" do
+    it "should spit out the page's content after being parsed through Markdown" do
+      post 'preview', :data => "#Test"
+      response.body.should == "<h1>Test</h1>\n"
+    end
+
+    describe "permissions" do
+      #we can't turn this into lambda to pass into the validation method because it won't call post properly 
+      def access_resource
+        post 'preview', :data => "#Test"
       end
 
       action_uses_admin_permissions

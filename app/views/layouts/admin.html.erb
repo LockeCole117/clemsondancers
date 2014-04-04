@@ -4,6 +4,14 @@
   <title></title>
   <%= stylesheet_link_tag    "admin", :media => "all" %>
   <%= javascript_include_tag "admin" %>
+  <!-- markItUp skin -->
+  <%= stylesheet_link_tag "markitup/skin/style", :media => "all" %>
+  <!-- markItUp toolbar skin -->
+  <%= stylesheet_link_tag "markitup/set/style", :media => "all" %>
+  <!-- markItUp -->
+  <%= javascript_include_tag "jquery.markitup" %>
+  <!-- markItUp toolbar settings -->
+  <%= javascript_include_tag "markitup_settings" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
