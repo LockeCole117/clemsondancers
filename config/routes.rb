@@ -10,6 +10,8 @@ Clemsondancers::Application.routes.draw do
     match '/' => "admins#index"
   end
 
+  devise_for :admin, :only => :session, :controllers => {:sessions => 'admin/sessions'}
+
   #  This should come after every other attempt at a page
   # as a last resort to find a page.
   match '/:page_url' => 'pages#show', :as => :show_page
