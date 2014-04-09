@@ -15,7 +15,7 @@ class Superuser::AdminsController < SuperuserController
 
   def index
     @admins = Admin.all
-    @title = "Admins"
+    @title = " Manage Admins"
   end
 
   def edit
