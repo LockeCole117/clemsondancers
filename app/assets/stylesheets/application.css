@@ -15,6 +15,10 @@ html{
   background: linear-gradient(white,purple);
 }
 
+html,body{
+  min-height: 100%;
+}
+
 body {
   margin:0;
 }

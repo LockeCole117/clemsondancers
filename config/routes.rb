@@ -1,20 +1,23 @@
 Clemsondancers::Application.routes.draw do
   namespace :admin do
-
-    resources :pages
-
+    resources :pages do
+     post 'preview', :on => :collection
+    end
   end
+  match 'admin/' => "admin#index"
 
   namespace :superuser do
     resources :admins, :except => :show
     match '/' => "admins#index"
   end
 
+  devise_for :admin, :only => :session, :controllers => {:sessions => 'admin/sessions'}
+
   #  This should come after every other attempt at a page
   # as a last resort to find a page.
-  match '/:page_url' => 'pages#show', :as => :page
+  match '/:page_url' => 'pages#show', :as => :show_page
 
-  root :to => 'static#test'
+  root :to => 'pages#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
