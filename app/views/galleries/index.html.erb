@@ -1,0 +1,7 @@
+<%= stylesheet_link_tag "galleries.css" %>
+<dl>
+	<% @galleries.each do |gallery| %>
+		<dt><%= link_to gallery.title, gallery_path(gallery)%></dt>
+	  	<dd><%= gallery.description %></dd>
+	<% end %>
+</dl>

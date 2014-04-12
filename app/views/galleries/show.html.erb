@@ -1,0 +1,9 @@
+<ul>
+	<% for image in @gallery.images %>  
+  	<li> <%= image_tag(image.url, :alt => image.description)%> 
+  	<p>
+  		 <%= h image.description %>
+  	</p>
+  	</li>  
+  <% end %>
+</ul>
