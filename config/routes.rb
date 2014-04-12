@@ -2,6 +2,7 @@ Clemsondancers::Application.routes.draw do
   namespace :admin do
 
     resources :pages
+    resources :galleries
 
   end
 
@@ -10,6 +11,8 @@ Clemsondancers::Application.routes.draw do
     match '/' => "admins#index"
   end
 
+  match '/galleries' =>'galleries#index', :as => :galleries
+  match '/galleries/:id' => 'galleries#show', :as => :gallery
   #  This should come after every other attempt at a page
   # as a last resort to find a page.
   match '/:page_url' => 'pages#show', :as => :page
