@@ -11,7 +11,6 @@ capybara-*.html
 rerun.txt
 pickle-email-*.html
 config/secrets.yml
-config/initializers/superuser_credentials.rb
 config/initializers/superuser_credentials.example.rb
 config/database.yml
 
