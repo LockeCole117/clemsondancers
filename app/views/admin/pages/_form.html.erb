@@ -3,7 +3,8 @@
 	<div class="form">
 		<%= form_for [:admin, page] do |f| %>
 		<%= f.label :title %>
-		<%= f.text_field :title %>
+		<%= f.text_field :title %><br>
+		<%= f.label :index, "Index Page:" %> <%= f.check_box :index %>
 		<br/>
 		<%= f.label :content %>
 		<br/>
