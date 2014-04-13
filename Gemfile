@@ -41,6 +41,7 @@ end
 group :production do
   gem 'pg', '0.12.2'
   gem 'rails_12factor'
+  gem 'unicorn'
 end
 
 ruby '1.9.3'
