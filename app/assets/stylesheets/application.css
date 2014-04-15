@@ -50,7 +50,11 @@ header h1{
   background: white;
 }
 
-h1 {
+#content h1 {
+  color:black;
+}
+
+#banner h1 {
 	font-family: Tahoma;
 	font-weight: bold;
 	font-size: 1em;
