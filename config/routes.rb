@@ -3,6 +3,7 @@ Clemsondancers::Application.routes.draw do
     resources :pages do
      post 'preview', :on => :collection
     end
+    resources :galleries
   end
   match 'admin/' => "admin#index"
 
@@ -12,6 +13,9 @@ Clemsondancers::Application.routes.draw do
   end
 
   devise_for :admin, :only => :session, :controllers => {:sessions => 'admin/sessions'}
+
+  match '/galleries' =>'galleries#index', :as => :galleries
+  match '/galleries/:id' => 'galleries#show', :as => :gallery
 
   #  This should come after every other attempt at a page
   # as a last resort to find a page.
