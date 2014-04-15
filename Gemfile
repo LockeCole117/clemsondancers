@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.16'
+gem 'rails', '3.2.9'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
@@ -39,8 +39,12 @@ group :test do
 end
 
 group :production do
-  #gem 'pg', '0.12.2'
+  gem 'pg', '0.12.2'
+  gem 'rails_12factor'
+  gem 'unicorn'
 end
+
+ruby '1.9.3'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

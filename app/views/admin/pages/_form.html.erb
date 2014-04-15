@@ -3,13 +3,17 @@
 	<div class="form">
 		<%= form_for [:admin, page] do |f| %>
 		<%= f.label :title %>
-		<%= f.text_field :title %>
+		<%= f.text_field :title %><br>
+		<%= f.label :index, "Index Page:" %> <%= f.check_box :index %>
 		<br/>
 		<%= f.label :content %>
 		<br/>
-		<%= f.text_area :content %>
+		<%= f.text_area :content, :id => "page_content" %>
 		<br/>
 		<%= f.submit submit_message %>
 		<% end %>
 	</div>
 </div>
+<script>
+	$('#page_content').markItUp(mySettings);
+</script>

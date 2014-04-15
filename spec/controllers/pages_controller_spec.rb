@@ -3,52 +3,44 @@ require 'spec_helper'
 describe PagesController do
 
   describe "GET 'index'" do
+    before do
+      @page = pages(:index)
+    end
+
     it "returns http success" do
       get 'index'
-      response.should be_success
+      assigns(:page).should == @page
+      response.should render_template('index')
     end
-  end
 
-  describe "GET 'new'" do
-    it "returns http success" do
-      get 'new'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'update'" do
-    it "returns http success" do
-      get 'update'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'edit'" do
-    it "returns http success" do
-      get 'edit'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'destroy'" do
-    it "returns http success" do
-      get 'destroy'
-      response.should be_success
-    end
-  end
-
-  describe "GET 'create'" do
-    it "returns http success" do
-      get 'create'
-      response.should be_success
+    it "renders the fallback page if something went wrong" do
+      Page.destroy_all
+      get 'index'
+      response.should render_template('static/fallback')
     end
   end
 
   describe "GET 'show'" do
-    it "returns http success" do
-      get 'show'
-      response.should be_success
+    before do
+      @page = pages(:about_us)
+    end
+
+    it "should find the page based on the url" do
+      get 'show', :page_url => "about_us"
+      assigns(:page).should == @page
+      response.should render_template('show')
+    end
+
+    it "should not find the page based on the id" do
+      get 'show', :page_url => @page.id
+      response.should redirect_to(root_path)
+      flash.should be_empty
+    end
+
+    it "should redirect to the root path if the page does not exist" do
+      get 'show', :page_url => "blahblagh"
+      assigns(:page).should_not == @page
+      flash.should be_empty
     end
   end
-
 end

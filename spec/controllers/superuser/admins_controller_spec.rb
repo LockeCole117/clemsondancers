@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Superuser::AdminsController do
-  include AuthHelper
   before(:each) do
     http_login
   end

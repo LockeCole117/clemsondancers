@@ -19,6 +19,7 @@ RSpec.configure do |config|
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.global_fixtures = :all
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
@@ -35,4 +36,12 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  # Add the modules required to handle testing with Devise
+  config.include Devise::TestHelpers, :type => :controller
+  config.include AuthHelper
+  config.include DeviseControllerInstanceMethods, :type => :controller
+  config.extend ControllerPermissionValidations, :type => :controller
+  config.extend DeviseControllerMethods, :type => :controller
+  config.extend DeviseRequestMethods, :type => :request
 end

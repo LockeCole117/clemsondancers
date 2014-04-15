@@ -1,0 +1,4 @@
+john:
+  email: John@test.com
+  encrypted_password: <%= Admin.new.send(:password_digest, 'test1234') %>
+  created_at: <%= Time.now %>
