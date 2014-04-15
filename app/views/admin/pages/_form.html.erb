@@ -4,7 +4,7 @@
 		<%= form_for [:admin, page] do |f| %>
 		<%= f.label :title %>
 		<%= f.text_field :title %><br>
-		<%= f.label :index, "Index Page:" %> <%= f.check_box :index %>
+		<%= f.check_box :index %> <%= f.label :index, "Is Home Page?" %>
 		<br/>
 		<%= f.label :content %>
 		<br/>
