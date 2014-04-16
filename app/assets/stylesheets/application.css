@@ -9,7 +9,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
  */
 
 html{
@@ -28,7 +27,7 @@ header {
   background-image:url("http://i.imgur.com/kpkd3ln.jpg");
   background-repeat:no-repeat;
   background-position: center top;
-  height: 300px;
+  height: 400px;
   position: relative;
 }
 
@@ -51,7 +50,11 @@ header h1{
   background: white;
 }
 
-h1 {
+#content h1 {
+  color:black;
+}
+
+#banner h1 {
 	font-family: Tahoma;
 	font-weight: bold;
 	font-size: 1em;
