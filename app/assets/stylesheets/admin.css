@@ -1,10 +1,14 @@
 
 html {
-	background: purple;
+	background: #744877;
 }
 
 body{
   font-family: sans-serif;
+}
+
+a{
+  color: #342A49;
 }
 
 header, header a{
@@ -37,4 +41,41 @@ header ul li:first-child:before{
   background: white;
   color: black;
   padding: 5px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+}
+
+#home_page_flag{
+  color: #7D8B57;
+  font-weight: bold;
+  font-style: italic;
+}
+
+td{
+  padding-right: 5px;
+  padding-bottom: 3px;
+}
+
+#page_metadata{
+  border-bottom: 2px dotted black;
+  background: #E4E4E4;
+  padding: 3px;
+  -webkit-border-radius: 3px 3px 0px 0px;
+  border-radius: 3px 3px 0px 0px;
+}
+
+label{
+  margin-top: 14px;
+}
+
+#page_content{
+  border: 1px solid black;
+}
+
+.hidden{
+  display:none;
+}
+
+input{
+  margin-bottom: 5px;
 }

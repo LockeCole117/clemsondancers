@@ -1,11 +1,8 @@
-<h2>Page View</h2>
-<p>
-	<h3>Title:</h3>
-	<%= @page.title %>
-</p>
-<p>
-	<h3>Content:</h3>
-	<%= @page.content %>
-</p>
-<br/>
-<%= link_to 'All Pages', admin_pages_path %>
+<div id="page_metadata">
+  <h3>Page Title: <%= @page.title %></h3>
+  <p><%= link_to "Edit Page", edit_admin_page_path(@page) %><p>
+  <h4>Page Content:</h4>
+</div>
+<div id="page_preview">
+	<%= markdown(@page.content) %>
+</div>
