@@ -17,7 +17,7 @@
 		<nav>
       <ul>
         <% Page.all.each do | page | %>
-          <li><%= link_to page.title, page.url %></li>
+          <li><%= link_to page.title, '/' + page.url %></li>
         <% end %>
         <% if Gallery.count > 0 %>
        	  <li><%= link_to 'Galleries', galleries_path %></li>
