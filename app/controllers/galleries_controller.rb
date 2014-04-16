@@ -11,7 +11,7 @@ class GalleriesController < ApplicationController
           @gallery = Gallery.find(params[:id])
           @title=@gallery.title
       rescue ActiveRecord::RecordNotFound
-          redirect_to admin_galleries_path, :flash => {:notice => "Page not found"}
+          redirect_to root_path
       end
 
   end
