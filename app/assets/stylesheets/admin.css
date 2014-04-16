@@ -79,3 +79,18 @@ label{
 input{
   margin-bottom: 5px;
 }
+
+.field_with_errors{
+  display:inline-block;
+  color: red;
+}
+
+#gallery_form #gallery_details label{
+  display:inline-block;
+  width: 150px;
+  text-align: right;
+}
+
+#gallery_form .image_fields{
+  margin-bottom: 5px;
+}

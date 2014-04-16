@@ -1,8 +1,8 @@
-<p class="fields">
-  <%= f.label :url, "url" %>
-  <%= f.text_field :url %>
-  <%= f.label :description, "description" %>
-  <%= f.text_field :description %>
+<li class="image_fields fields">
+  <%= f.label :url, "URL:" %>
+  <%= f.text_field :url, :placeholder => "http://imgur.com/" %>
+  <%= f.label :description, "Description:" %>
+  <%= f.text_field :description, :placeholder => "Dance of the Sugar Plum Fairy" %>
   <%= f.hidden_field :_destroy %>
   <%= link_to_remove_fields "remove", f %>
-</p>
+</li>

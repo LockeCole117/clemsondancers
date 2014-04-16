@@ -1,21 +1,22 @@
 <%= render 'layouts/error_explanation', :object => gallery%>
-<div class="row">
-	<div class="form">
-		<%= form_for [:admin, gallery] do |f| %>
-		<%= f.label :title %>
-		<%= f.text_field :title %>
-		<br/>
-		<%= f.label :description %>
-		<%= f.text_field :description %>
-		<br/>
-		<br/>
-		<%= f.label :images %>
-		<%= f.fields_for :images do |builder| %>
-			<%= render "image_fields", :f => builder %>
-		<% end %>
-		<%= link_to_add_fields "Add Image", f, :images %>
-		<br/>
-		<%= f.submit submit_message %>
-		<% end %>
-	</div>
+<div id="gallery_form" class="form">
+	<%= form_for [:admin, gallery] do |f| %>
+		<div id="gallery_details">
+			<%= f.label :title, "Gallery Title" %>
+	    <%= f.text_field :title, :placeholder => "Dance Showcase!" %>
+	    <br/>
+	    <%= f.label :description, "Gallery Description" %>
+	    <%= f.text_field :description, :placeholder => "The Spring Showcase" %>
+		</div>
+		<div id="gallery_images">
+	    <h3>Gallery Images (<%= link_to_add_fields "Add Image", f, :images, "#images_list" %>)</h3>
+	    <ul id="images_list">
+	    <%= f.fields_for :images do |builder| %>
+	      <%= render "image_fields", :f => builder %>
+	    <% end %>
+	    </ul>
+	    <br/>
+	    <%= f.submit submit_message %>
+  	</div>
+  <% end %>
 </div>
