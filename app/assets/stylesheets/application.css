@@ -12,7 +12,7 @@
  */
 
 html{
-  background: linear-gradient(white,purple);
+  background: linear-gradient(#E4E4E4,purple);
 }
 
 html,body{
@@ -21,6 +21,7 @@ html,body{
 
 body {
   margin:0;
+  font-family: sans-serif;
 }
 
 header {
@@ -68,6 +69,10 @@ header h1{
   bottom:0;
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
+nav{
+  margin-bottom: 4px;
+  margin-top: 4px;
+}
 
 nav ul{
   padding: 0;
@@ -82,23 +87,34 @@ nav ul li {
   width: 22%;
   padding: 0;
   margin: 0;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
 }
 
 #sidebar{
   float: right;
   height: 100%;
   padding: 10px;
-  padding-right: 50px;
   margin-bottom: 30px;
+  margin-right: 2%;
+  width: 25%;
+  -webkit-border-radius: 0px 3px 3px 0px;
+  border-radius: 0px 3px 3px 0px;
 }
- 
+
 #content{
-  height: 100%;
-  padding: 15px;
+  width: 66%;
+  padding-top:1px;
+  padding-left: 3%;
+  padding-right: 3%;
+  -webkit-border-radius: 0px 0px 3px 3px;
+  border-radius: 0px 0px 3px 3px;
+  min-height:600px;
 }
 
 #contact ul{
   list-style: none;
+  padding:0px;
 }
 
 #contact h4{
