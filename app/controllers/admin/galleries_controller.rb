@@ -14,16 +14,14 @@ class Admin::GalleriesController < AdminController
   def edit
     @title = "Edit Gallery"
     begin
-          @gallery = Gallery.find(params[:id])
-          @gallery.images.build
-      rescue ActiveRecord::RecordNotFound
-          redirect_to admin_gallleries_path, :flash => {:notice => "Page not found"}
-      end
+      @gallery = Gallery.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+        redirect_to admin_galleries_path, :flash => {:notice => "Page not found"}
+    end
   end
 
   def create
     @gallery = Gallery.new(params[:gallery])
-    
       if @gallery.save
           redirect_to admin_galleries_path(@gallery), :flash => {:success => "Page Created"}
       else
@@ -33,15 +31,15 @@ class Admin::GalleriesController < AdminController
 
   def update
     begin
-          @gallery = Gallery.find(params[:id])
-          if @gallery.update_attributes(params[:gallery])
-            render 'show'
-          else
-            render 'edit'
-          end
-      rescue ActiveRecord::RecordNotFound
-          redirect_to admin_galleries_path, :flash => {:notice => "Page not found"}
+      @gallery = Gallery.find(params[:id])
+      if @gallery.update_attributes(params[:gallery])
+        render 'show'
+      else
+        render 'edit'
       end
+    rescue ActiveRecord::RecordNotFound
+        redirect_to admin_galleries_path, :flash => {:notice => "Page not found"}
+    end
   end
 
   def destroy
