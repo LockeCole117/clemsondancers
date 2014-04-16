@@ -7,12 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<h1><%= @title %></h1>
-	<% flash.each do |key, value| %>
-    	<div class="flash <%= key %>"><%= value %></div>
-	<%end%>
+  <header>
+  	<h1><%= @title %></h1>
+    <nav>
+      <ul>
+        <li><%= link_to "New Admin", new_superuser_admin_path %></li>
+      </ul>
+    </nav>
+  	<% flash.each do |key, value| %>
+      	<div class="flash <%= key %>"><%= value %></div>
+  	<%end%>
+  </header>
 
-	<%= yield %>
+  <div id="content">
+	 <%= yield %>
+  </div>
 
 </body>
 </html>

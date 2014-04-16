@@ -1,18 +1,56 @@
-
 html {
-	background: purple;
+  background: #744877;
 }
 
-body {
-	color: white;
+body{
+  font-family: sans-serif;
 }
 
-a {
-	color: white;
+a{
+  color: #342A49;
+}
+
+header, header a{
+  color: white;
+}
+
+header h1 a{
+  text-decoration: none;
+}
+
+header ul{
+  padding: 0px;
+}
+
+header li{
+  display: inline-block;
+}
+
+header ul li:before{
+  content: "|";
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+header ul li:first-child:before{
+  content: none;
+}
+
+#content{
+  background: white;
+  color: black;
+  padding: 5px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
 }
 
 label {
 	display: inline-block;
-	width: 150px;
+	width: 180px;
 	text-align: right;
+}
+
+.field_with_errors{
+  display:inline-block;
+  color: red;
 }
