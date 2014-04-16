@@ -12,31 +12,43 @@
 	text-decoration:none;
 }
 .markItUp  {
-	width:700px;
-	margin:5px 0 5px 0;
+	width:100%;
+	margin:10px 0 5px 0;
 }
 .markItUpContainer  {
 	font:11px Verdana, Arial, Helvetica, sans-serif;
 }
 .markItUpEditor {
 	font:12px 'Courier New', Courier, monospace;
-	padding:5px;
-	width:690px;
-	height:320px;
+	width:48%;
+	height:100%;
 	clear:both;
 	line-height:18px;
 	overflow:auto;
+	vertical-align: top;
+	padding: 3px;
 }
 .markItUpPreviewFrame	{
 	overflow:auto;
 	background-color:#FFF;
-	width:99.9%;
-	height:300px;
-	margin:5px 0;
+	width:48%;
+	height:800px;
 }
 .markItUpFooter {
 	width:100%;
+	display:none;
 }
+
+@media all and (max-width: 1000px){
+	.markItUpEditor,.markItUpPreviewFrame {
+		width:98%;
+	}
+
+	.markItUpEditor{
+		padding-right: 0px;
+	}
+}
+
 .markItUpResizeHandle {
 	overflow:hidden;
 	width:22px; height:5px;
@@ -49,7 +61,7 @@
 /* first row of buttons */
 .markItUpHeader ul li	{
 	list-style:none;
-	float:left;
+	display: inline-block;
 	position:relative;
 }
 .markItUpHeader ul li:hover > ul{

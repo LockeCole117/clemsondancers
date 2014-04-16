@@ -13,6 +13,7 @@
 mySettings = {
 	previewParserPath:	'/admin/pages/preview.html',
 	previewPosition:		'after',
+	previewAutoRefresh: true,
 	onShiftEnter:		{keepDefault:false, openWith:'\n\n'},
 	markupSet: [
 		{name:'First Level Heading', key:'1', placeHolder:'Your title here...', closeWith:function(markItUp) { return miu.markdownTitle(markItUp, '=') } },
