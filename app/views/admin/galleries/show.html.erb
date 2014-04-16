@@ -1,16 +1,4 @@
-<h2>Gallery View</h2>
-<p>
-	<h3>Title:</h3>
-	<%= @gallery.title %>
-</p>
-<p>
-	<h3>Description:</h3>
-	<%= @gallery.description %>
-</p>
-<br/>
-<ul>
-	<% for image in @gallery.images %>  
-  <li> <%= image_tag(image.url, :alt => image.description) %> <%= h image.description %></li>  
-  <% end %>
-</ul>
-<%= link_to 'All Galleries', admin_galleries_path %>
+<div id="metadata">
+  <p><%= link_to "Edit Gallery", edit_admin_gallery_path(@gallery) %><p>
+</div>
+<%= render 'galleries/gallery', :gallery => @gallery %>

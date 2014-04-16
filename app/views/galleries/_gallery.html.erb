@@ -1,0 +1,14 @@
+<div id="gallery">
+  <h2 id="gallery_title"><%= h gallery.title %></h2>
+  <div id="gallery_description">
+    <p><%= h gallery.description %>
+  </div>
+  <div id="gallery_images">
+    <% gallery.images.each do |image| %>
+    <figure>
+      <%= image_tag(image.url, :alt => image.description) %>
+      <figcaption><%= h image.description %></figcaption>
+    </figure>
+    <% end %>
+  </div>
+</div>

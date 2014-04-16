@@ -1,0 +1,41 @@
+#gallery figure img{
+  display: block;
+  margin: auto;
+  max-width: 1200px;
+  border: 3px solid #342A49;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+}
+
+#gallery figure{
+}
+
+#gallery figure figcaption{
+  margin-top: 3px;
+  text-align: center;
+  font-style: italic;
+}
+
+#gallery #gallery_title{
+  text-align: center;
+  font-size: 35px;
+}
+
+#gallery #gallery_description{
+  font-style: italic;
+  padding: 5px;
+}
+
+#gallery_list dt{
+  font-size: 25px;
+}
+
+#gallery_list dt a{
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#gallery_list dd {
+  font-style: italic;
+  margin-top: 10px;
+}
