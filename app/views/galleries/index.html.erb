@@ -1,7 +1,8 @@
 <%= stylesheet_link_tag "galleries.css" %>
-<dl>
+<h2>Galleries</h2>
+<dl id="gallery_list">
 	<% @galleries.each do |gallery| %>
-		<dt><%= link_to gallery.title, gallery_path(gallery)%></dt>
+		<dt><%= link_to gallery.title, gallery_path(gallery)%> (<%= pluralize(gallery.images.count, "image") %>)</dt>
 	  	<dd><%= gallery.description %></dd>
 	<% end %>
 </dl>
