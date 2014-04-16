@@ -15,11 +15,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h1> Admin </h1>
-<% flash.each do |key, value| %>
+<header>
+  <h1><%= link_to "Clemson Dancer's Admin Page", admin_index_path %></h1>
+  <nav>
+    <ul>
+      <li><%= link_to "Manage Pages", admin_pages_path %></li>
+      <li><%= link_to "Manage Galleries", admin_galleries_path %></li>
+      <li>Clemson Dancers Gmail</li>
+    </ul>
+  </nav>
+  <% flash.each do |key, value| %>
     <div class="flash <%= key %>"><%= value %></div>
-<%end%>
-<%= yield %>
-
+  <%end%>
+</header>
+<div id="content">
+  <%= yield %>
+</div>
 </body>
 </html>

@@ -5,7 +5,7 @@ Clemsondancers::Application.routes.draw do
     end
     resources :galleries
   end
-  match 'admin/' => "admin#index"
+  match 'admin/' => "admin#index", :as => :admin_index
 
   namespace :superuser do
     resources :admins, :except => :show

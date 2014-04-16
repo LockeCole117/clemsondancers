@@ -3,10 +3,38 @@ html {
 	background: purple;
 }
 
-body {
-	color: white;
+body{
+  font-family: sans-serif;
 }
 
-a {
-	color: white;
+header, header a{
+  color: white;
+}
+
+header h1 a{
+  text-decoration: none;
+}
+
+header ul{
+  padding: 0px;
+}
+
+header li{
+  display: inline-block;
+}
+
+header ul li:before{
+  content: "|";
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+header ul li:first-child:before{
+  content: none;
+}
+
+#content{
+  background: white;
+  color: black;
+  padding: 5px;
 }
