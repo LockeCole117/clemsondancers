@@ -1,15 +1,13 @@
 <%= render 'layouts/error_explanation', :object => page%>
-<div class="row">
-	<div class="form">
-		<%= form_for [:admin, page] do |f| %>
-		<%= f.label :title, "Page Title:" %>
-		<%= f.text_field :title %><br>
-		<%= f.check_box :index %> <%= f.label :index, "This is the home page." %><br/>
-		<%= f.label :content, "Page Content", :class => "hidden" %>
-		<%= f.submit submit_message %><br/>
-		<%= f.text_area :content, :id => "page_content" %>
-		<% end %>
-	</div>
+<div class="form">
+	<%= form_for [:admin, page] do |f| %>
+	<%= f.label :title, "Page Title:" %>
+	<%= f.text_field :title %><br>
+	<%= f.check_box :index %> <%= f.label :index, "This is the home page." %><br/>
+	<%= f.label :content, "Page Content", :class => "hidden" %>
+	<%= f.submit submit_message %><br/>
+	<%= f.text_area :content, :id => "page_content" %>
+	<% end %>
 </div>
 <script>
 	$('#page_content').markItUp(mySettings);
