@@ -22,6 +22,8 @@ html,body{
 body {
   margin:0;
   font-family: sans-serif;
+  padding-left: 3px;
+  padding-right: 3px;
 }
 
 header {
