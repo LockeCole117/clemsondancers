@@ -74,6 +74,12 @@ nav{
   margin-top: 4px;
 }
 
+nav a{
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
 nav ul{
   padding: 0;
   margin:0;
@@ -85,8 +91,8 @@ nav ul li {
   display: inline-block;
   background: purple;
   width: 22%;
-  padding: 0;
-  margin: 0;
+  padding: 3px;
+  margin-bottom: 5px;
   -webkit-border-radius: 3px 3px 3px 3px;
   border-radius: 3px 3px 3px 3px;
 }
