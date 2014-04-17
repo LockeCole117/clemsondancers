@@ -1,7 +1,7 @@
 #gallery figure img{
   display: block;
   margin: auto;
-  max-width: 1200px;
+  max-width: 90%;
   border: 3px solid #342A49;
   -webkit-border-radius: 3px 3px 3px 3px;
   border-radius: 3px 3px 3px 3px;
