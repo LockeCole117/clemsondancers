@@ -1,9 +1,13 @@
+# This controller allows superusers to create, update, and view
+# all the admins who have access to the backend on the site.
 class Superuser::AdminsController < SuperuserController
   def new
     @admin = Admin.new
     @title = "New Admin"
   end
 
+  # If the admin can't be created, return to the 'create admin' form and show
+  # them what went wrong.
   def create
     @admin = Admin.new(params[:admin])
     if @admin.save
@@ -18,6 +22,8 @@ class Superuser::AdminsController < SuperuserController
     @title = " Manage Admins"
   end
 
+  # if the admin doesn't exist, then just return to the home page for the
+  # superusers backend
   def edit
     @title = "Edit Admin"
     begin
@@ -27,6 +33,9 @@ class Superuser::AdminsController < SuperuserController
     end
   end
 
+
+  # If the admin can't be updated, return to the 'edit admin' form and show
+  # them what went wrong.
   def update
     begin
       @admin = Admin.find(params[:id])
@@ -40,6 +49,8 @@ class Superuser::AdminsController < SuperuserController
     end
   end
 
+  # if the admin doesn't exist, then just return to the home page for the
+  # superusers backend
   def destroy
     begin
       @admin = Admin.find(params[:id])

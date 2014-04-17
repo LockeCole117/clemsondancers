@@ -1,3 +1,5 @@
+# This class is responsible for showing anyone all the galleries in the site
+# and rendering a gallery for someone to see.
 class GalleriesController < ApplicationController
 	
 	def index
@@ -6,6 +8,7 @@ class GalleriesController < ApplicationController
 
 	end
 
+  # If the gallery doesn't exist, then we return to the home page
 	def show
       begin
           @gallery = Gallery.find(params[:id])

@@ -1,3 +1,6 @@
+# This class is responsible for showing a single page based on the page URL
+# and rendering the home page.
+# If the home page cannot be found, then a static "fallback" page is shown
 class PagesController < ApplicationController
 
   def show

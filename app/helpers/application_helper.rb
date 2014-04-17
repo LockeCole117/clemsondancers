@@ -1,4 +1,6 @@
 module ApplicationHelper
+  # automatically configures all the settings we need to render Markdown as HTML
+  # and return the HTML as an unescaped string
   def markdown(text)
     render_options = {
       # output HTML tags inputted by user 
@@ -44,10 +46,12 @@ module ApplicationHelper
     Redcarpet::Markdown.new(renderer, extensions).render(text).html_safe
   end
 
+  # Generates a link to the "remove" nested field
   def link_to_remove_fields(name, f)
     f.hidden_field(:_destroy) + link_to_function(name, "remove_fields(this)")
   end
-  
+
+  # generates a link to create the contents of the nested field set and call the JS function
   def link_to_add_fields(name, f, association, parent_container_query)
     new_object = f.object.class.reflect_on_association(association).klass.new
     fields = f.fields_for(association, new_object, :child_index => "new_#{association}") do |builder|
@@ -56,6 +60,7 @@ module ApplicationHelper
     link_to_function(name, "add_fields(\"#{parent_container_query}\", \"#{association}\", \"#{escape_javascript(fields)}\")")
   end
 
+  # standardized contact link
   def email_link
     mail_to "clemsondancers@gmail.com"
   end

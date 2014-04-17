@@ -1,3 +1,4 @@
+# This is where admins can list, create, and update all the galleries in the site
 class Admin::GalleriesController < AdminController
   
   def index
@@ -11,6 +12,7 @@ class Admin::GalleriesController < AdminController
     5.times{@gallery.images.build}
   end
 
+  # if the gallery doesn't exist, just return to the list of galleries
   def edit
     @title = "Edit Gallery"
     begin
@@ -20,6 +22,7 @@ class Admin::GalleriesController < AdminController
     end
   end
 
+  # If something went wrong, return to the form to let the user know what happened
   def create
     @gallery = Gallery.new(params[:gallery])
       if @gallery.save
@@ -29,6 +32,8 @@ class Admin::GalleriesController < AdminController
       end
   end
 
+  # if the gallery doesn't exist, just return to the list of galleries
+  # If something went wrong, return to the form to let the user know what happened
   def update
     begin
       @gallery = Gallery.find(params[:id])
@@ -42,6 +47,7 @@ class Admin::GalleriesController < AdminController
     end
   end
 
+  # if the gallery doesn't exist, just return to the list of galleries
   def destroy
     begin
           @gallery = Gallery.find(params[:id])
@@ -52,6 +58,8 @@ class Admin::GalleriesController < AdminController
       end
   end
 
+  # if the gallery doesn't exist, just return to the list of galleries
+  # uses the same partial that renders the gallery for the public
   def show
     @title = "Gallery"
       begin

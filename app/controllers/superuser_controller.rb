@@ -1,3 +1,5 @@
+# This class is responsible for ensuring the superuser views are protected
+# by the hardcoded superuser username and password combination.
 class SuperuserController < ApplicationController
   layout 'superuser'
 
