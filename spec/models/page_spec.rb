@@ -96,10 +96,10 @@ describe Page do
 
     end
 
-    describe "gallery" do
+    describe "galleries" do
       before do
-        @reserved_url = "gallery"
-        @reserved_title = "Gallery"
+        @reserved_url = "galleries"
+        @reserved_title = "Galleries"
         @page = Page.new(:title => "blabla", :content => "hello")
         @page.should be_valid
       end

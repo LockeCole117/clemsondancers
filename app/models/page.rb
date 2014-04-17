@@ -8,7 +8,7 @@
 
 class Page < ActiveRecord::Base
   attr_accessible :content, :title, :url, :index
-  PROTECTED_URLS = ["superuser", "gallery", "admin"]
+  PROTECTED_URLS = ["superuser", "galleries", "admin"]
 
   validates :title, :presence => true, :uniqueness => true, :allow_blank => false
   validates :content, :presence => true, :allow_blank => false
@@ -105,6 +105,8 @@ class Page < ActiveRecord::Base
   # Page URLs are based on the title of the page. Therefore, we generate a new
   # URL for the page if it doesn't exist or it was previously set to the page's title
   def generate_url
-    self.url = self.title.parameterize.underscore if self.url.blank?
+    if self.title.present?
+      self.url = self.title.parameterize.underscore if (self.url.blank? or self.url == self.title_was.try(:parameterize).try(:underscore))
+    end
   end
 end
