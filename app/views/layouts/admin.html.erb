@@ -19,9 +19,11 @@
   <h1><%= link_to "Clemson Dancer's Admin Page", admin_index_path %></h1>
   <nav>
     <ul>
-      <li><%= link_to "Manage Pages", admin_pages_path %></li>
-      <li><%= link_to "Manage Galleries", admin_galleries_path %></li>
-      <li>Clemson Dancers Gmail</li>
+      <% if admin_signed_in? %>
+        <li><%= link_to "Manage Pages", admin_pages_path %></li>
+        <li><%= link_to "Manage Galleries", admin_galleries_path %></li>
+        <li><%= link_to "Sign Out", destroy_admin_session_path, :method => :delete %></li>
+      <% end %>
     </ul>
   </nav>
   <% flash.each do |key, value| %>
