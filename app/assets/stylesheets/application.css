@@ -120,6 +120,10 @@ nav ul li {
   min-height:600px;
 }
 
+#content iframe{
+  max-width: 100%;
+}
+
 #contact ul{
   list-style: none;
   padding:0px;
