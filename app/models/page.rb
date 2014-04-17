@@ -46,7 +46,7 @@ class Page < ActiveRecord::Base
   before_save :set_page_to_index_if_no_other_pages_exist
 
   scope :index_flag_set, :conditions => {:index => true}
-  scope :ordered, :order => "`index` DESC"
+  scope :ordered, :order => "index DESC"
 
 
   # This allows us to quickly find the index page anywhere throughout the application,
