@@ -9,3 +9,5 @@ An unlimited number of admins can manage the pages and galleries in a site, but 
 This is a Rails project, heavily following the MVC pattern and conventions established by Rails.
 
 To learn Rails, I'd highly suggest picking up Michael Hartl's [Railstutorial](http://ruby.railstutorial.org/)
+
+You can contribute to this project at: https://github.com/LockeCole117/clemsondancers
