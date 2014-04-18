@@ -11,3 +11,5 @@ This is a Rails project, heavily following the MVC pattern and conventions estab
 To learn Rails, I'd highly suggest picking up Michael Hartl's [Railstutorial](http://ruby.railstutorial.org/)
 
 You can contribute to this project at: https://github.com/LockeCole117/clemsondancers
+
+The ClemsonDancers instance is managed by Thomas Cannon (@LockeCole117 on Github). If you want to help contribute to that specific instance, please contact through Github.
